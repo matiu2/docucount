@@ -15,10 +15,26 @@ For example:
  1. Any transaction with the name "Dick Smith" is tagged 'elerctronic equipment'
  2. In your expernse report you say 'electronic equipment'
 
+Code Layout
+----------
+
+It uses a MVC (Model View Controller) style.
+
+    +--model
+    |-+app-root
+    | \--templates
+    \--view
+
+Everything in the base directory is part of the controller layer; it just hooks up the model and the view.
+Everything in the 'model' directory represents objects from our problem domain.
+Everything in the 'widgets' and 'app-root/templates' directories are part of the view layer.
 
 Data Object Types
 -----------------
 
+ * Entity (person or company etc)
+   * name
+   * accounts
  * Account
    * name
    * number

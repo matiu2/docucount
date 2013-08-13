@@ -6,14 +6,10 @@
 #include <Wt/WDate>
 #include <Wt/WString>
 
-#include <string>
-
-#include <string>
-
 namespace docucount {
-namespace dbo {
+namespace model {
 
-struct Regex : public Wt::Dbo::Dbo<Cat> {
+struct Regex : public Wt::Dbo::Dbo<Regex> {
     Wt::WString name;
     Wt::WString regex;
     void persist(Action& a) {

@@ -6,16 +6,12 @@
 #include <Wt/WDate>
 #include <Wt/WString>
 
-#include <string>
-
-#include <string>
-
 namespace docucount {
-namespace dbo {
+namespace model {
 
 struct Tag;
 
-struct Transaction : public Wt::Dbo::Dbo<Cat> {
+struct Report : public Wt::Dbo::Dbo<Report> {
     Wt::WString name;
     bool withNeg{true}; /// Include negative value transactions in the report
     bool withPos{true}; /// Include positive value transactions in the report
@@ -25,13 +21,12 @@ struct Transaction : public Wt::Dbo::Dbo<Cat> {
     Wt::Dbo::collection<Tag> tags;
     void persist(Action& a) {
         using Wt::Dbo::field;
-
         field(a, name, "name");
         field(a, withNeg, "withNeg");
         field(a, withPos, "withPos");
         field(a, firstDay, "firstDay");
         field(a, dayAfter, "dayAfter");
-        Wt::Dbo::hasMany(a, tags, dbo::ManyToMany, "report_tag");
+        Wt::Dbo::hasMany(a, tags, Wt::Dbo::ManyToMany, "report_tag");
     }
 };
 

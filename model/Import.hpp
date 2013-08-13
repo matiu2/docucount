@@ -6,16 +6,12 @@
 #include <Wt/WDate>
 #include <Wt/WString>
 
-#include <string>
-
-#include <string>
-
 namespace docucount {
-namespace dbo {
+namespace model {
 
 struct Transaction;
 
-struct Import : public Wt::Dbo::Dbo<Cat> {
+struct Import : public Wt::Dbo::Dbo<Import> {
     Wt::WString name;
     Wt::WDate date;     /// Date imported
     Wt::WString regex;  /// The value of the regex applied to 'data' to perform the import
